@@ -393,7 +393,7 @@
        margin-bottom: 24px;
    }
    .circle-progress {
-       display: inline-block;
+       display: block;
        width: 200px;
        height: 200px;
        position: relative;
@@ -536,7 +536,7 @@
        float: right;
        width: 120px;
        height: 70px;
-       display: inline-block;
+       display: block;
    }
    .header-action-button {
        position: absolute;
@@ -896,7 +896,7 @@
        position: static;
        word-wrap: break-word;
    }
-   .sections-wrapper {
+    .sections-wrapper {
        display: block;
        width: auto;
        height: auto;
@@ -922,7 +922,7 @@
    .section-img {
        max-height: 650px;
        margin: 0 auto;
-   }
+   } 
    .vertical-center {
        display: table-cell;
        vertical-align: middle;
@@ -1983,7 +1983,7 @@
    }
    .comment .inner .image {
        float: left;
-       display: inline-block;
+       display: block;
        width: 100px;
        height: 100px;
        overflow: hidden;
