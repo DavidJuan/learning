@@ -25,6 +25,8 @@
 **/
 
 
+
+
 /* ==========================================================================
    01. General Styles
    ========================================================================== */
@@ -45,6 +47,9 @@
    p {
        margin-bottom: 24px;
    }
+
+    .iconify { width: 60px; height: 60px; }
+
    blockquote {
        margin: 24px 0;
        margin-left: 72px;
@@ -393,7 +398,7 @@
        margin-bottom: 24px;
    }
    .circle-progress {
-       display: block;
+       display: inline-block;
        width: 200px;
        height: 200px;
        position: relative;
@@ -453,7 +458,7 @@
       06. Header
       ========================================================================== */
    .header {
-       box-shadow: 0 1px 6px rgba(0,0,0,.3);
+       box-shadow: 0 8px 6px rgba(0,0,0,.3);
        text-transform: uppercase;
    }
    .header .top {
@@ -536,7 +541,7 @@
        float: right;
        width: 120px;
        height: 70px;
-       display: block;
+       display: inline-block;
    }
    .header-action-button {
        position: absolute;
@@ -896,7 +901,7 @@
        position: static;
        word-wrap: break-word;
    }
-    .sections-wrapper {
+   .sections-wrapper {
        display: block;
        width: auto;
        height: auto;
@@ -922,7 +927,7 @@
    .section-img {
        max-height: 650px;
        margin: 0 auto;
-   } 
+   }
    .vertical-center {
        display: table-cell;
        vertical-align: middle;
@@ -1983,7 +1988,7 @@
    }
    .comment .inner .image {
        float: left;
-       display: block;
+       display: inline-block;
        width: 100px;
        height: 100px;
        overflow: hidden;
