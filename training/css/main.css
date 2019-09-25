@@ -36,7 +36,6 @@ header .title {
     min-width: 670px;
     position: relative;
     float: right;
-    
 }
 
 .main-nav ul li {
@@ -65,21 +64,18 @@ header .title {
 
 #content {
     padding-top:100px;
-    display: block;
-	height: auto;
-	position: relative;
-	word-wrap: break-word;
-    background-color: #fdfdfd;
+    margin: 0 auto;
+	background-color: #fdfdfd;
     width: 80%;
+    position: relative;
 }
 
 .sections{
-    
-    margin: 0 ,auto;
+    position: relative;
 }
 
 .container{
-    
+    position: relative;
     clear: both;
 }
 
@@ -92,10 +88,6 @@ header .title {
 .right-content{
     width:45%;
     float: right;
-}
-
-.home-text {
-    width: 50%;
 }
 
  /* .sections img {
