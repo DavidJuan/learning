@@ -3,6 +3,7 @@
 
 main{
     margin-top: -20px;
+    height: 3000px;
 
 }
 
@@ -38,7 +39,7 @@ header .title {
     
 }
 
-.main-nav ul>li{
+.main-nav ul li {
     margin-bottom: 0;
     display: inline-block;
     margin-left: -4px;
@@ -47,8 +48,12 @@ header .title {
     line-height: 20px;
     height: 30px;
     border-bottom: 10px solid transparent;
+}
+
+.main-nav ul li a{
     text-decoration: none;
 }
+
 .main-nav ul>li a:hover {
     border-bottom: 5px solid #7c4dff;
     text-decoration: none;
