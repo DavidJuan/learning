@@ -1,14 +1,3 @@
-
-// var http = require ("http");
-
-// http.createServer(function(req, res){
-
-//     res.end("Ola");
-
-// }).listen(8099);
-
-// console.log("Servidor Rodando");
-
 const express = require("express"); 
 const app = express();
 var path = require("path");
