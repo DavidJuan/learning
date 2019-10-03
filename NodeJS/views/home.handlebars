@@ -1,0 +1,33 @@
+<h1>TITULO TESTE</h1>
+
+
+{{#each posts}}
+    <small>{{createdAt}}</small>
+    <h1>{{titulo}}</h1>
+    <p>{{conteudo}}</p>
+    <a href="/delete/{{id}}"><button>DELETE</button></a>
+    <hr>
+{{/each}}
+
+{{!-- 1 - instalar o "moment": npm install --save moment
+2 - No app.js fazer a importação: const moment = require('moment')
+3 - Ainda no app.js, na configuração do Handlebars, incluir o seguinte comando:
+    app.engine('handlebars', handlebars({
+        defaultLayout: 'main',
+        helpers: {
+            formatDate: (date) => {
+                return moment(date).format('DD/MM/YYYY')
+            }
+        }
+    }))
+4 - No HTML que irá exibir a data, incluir o seguinte código:
+{{#each clientes}}
+    <div class="card">
+        <div class="card-body">
+            // Faz a chamada do "formatDate" criado no item 3.
+            <h4>{{#formatDate data_nascimento}}{{/formatDate}}</h4>
+        </div>
+    </div>
+{{else}}
+
+{{/each}} --}}
