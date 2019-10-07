@@ -15,12 +15,10 @@ mongoose.connect("mongodb://localhost/aprender", { useNewUrlParser: true , useUn
         nome:{
             type: String,
             require: true
-
         },
         sobrenome:{
             type: String,
             require: true
-
         },
         email:{
             type: String,
@@ -31,17 +29,23 @@ mongoose.connect("mongodb://localhost/aprender", { useNewUrlParser: true , useUn
             require: true
         },
         pais:{
-            type: String
-            
+            type: String            
         }
     })
+
 //Collection
     mongoose.model('users', UserSchema)
 
-    new UserSchema({
+    const David = mongoose.model('users')
+
+    new David({
         nome: 'David',
         sobrenome: 'Juan',
         email: 'teste@teste.com',
         idade: 28,
         pais: 'Brasil'
-    }).save().then().catch
+    }).save().then(() =>{
+        console.log('Usuario criado com sucesso')
+    }).catch((err) => {
+        console.log('Houve um erro ao cadastar o usuario' + err)
+    })
