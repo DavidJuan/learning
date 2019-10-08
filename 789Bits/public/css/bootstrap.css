@@ -10036,6 +10036,41 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+/* SOCIAL MEDIA ROUND BUTTONS */
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+ }
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  color: white;
+  background: #3B5998;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+/* Instagram */
+.fa-instagram{
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
 /* ==========================================================================
    06. Header
    ========================================================================== */
