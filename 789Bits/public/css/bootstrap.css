@@ -153,7 +153,7 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #FFF;
   text-decoration: none;
   background-color: transparent;
 }
@@ -578,6 +578,7 @@ pre code {
 }
 
 .container-fluid {
+  max-width: 2000px;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -3061,7 +3062,7 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 5rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
@@ -10040,16 +10041,20 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* Style all font awesome icons */
 .fa {
-  padding: 20px;
+  padding: 15px;
   font-size: 30px;
-  width: 100%;
+  width: 60px;
   text-align: center;
   text-decoration: none;
- }
+  border-radius: 50%;
+  margin: 10px;
+}
 
 /* Add a hover effect if you want */
 .fa:hover {
   opacity: 0.7;
+  color: #FFF;
+  
 }
 
 /* Set a specific color for each brand */
@@ -10060,6 +10065,30 @@ a.text-dark:hover, a.text-dark:focus {
   background: #3B5998;
 }
 
+.fa-linkedin {
+  color: white;
+  background: #0073B0
+}
+
+.fa-youtube {
+  color: white;
+  background: #FF0000
+}
+
+.fa-skype {
+  color: white;
+  background: #1CB2E7
+}
+
+.fa-twitch {
+  color: white;
+  background: #9147FF;
+}
+
+.fa-github {
+  color: white;
+  background: #24292E
+}
 /* Twitter */
 .fa-twitter {
   background: #55ACEE;
@@ -10067,7 +10096,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 /* Instagram */
 .fa-instagram{
-  background: #d6249f;
+  color: #fff;
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
 }
 
@@ -10078,28 +10107,46 @@ a.text-dark:hover, a.text-dark:focus {
     box-shadow: 0 1px 6px rgba(0,0,0,.3);
     text-transform: uppercase;
   }
+
+  .header .top ul li:nth-child(1){
+    margin-right: 100px;
+    font-size: 120%;
+    color: #fff;
+  }
+
+  .header .top ul li {
+    font-size: 2em;
+  }
+
+  .header ul>li {
+    padding: 0;
+    display: inline-block;
+    margin-left: -4px;
+    margin-bottom: 0;
+  }
+
   .header .top {
     background: #7c4dff;
     line-height: 50px;
-    color: #fff;
     padding: 0 60px;
   }
-  .header .top a {
-    color: #fff;
-  }
+
   .header .top a:hover {
     opacity: .75;
     text-decoration: none;
   }
+
   .header .top .available {
     float: left;
   }
-  .header .top .available i {
+  
+  .header .top .available a {
     font-size: 36px;
     line-height: 50px;
     margin-right: 8px;
     vertical-align: middle;
   }
+
   .header .top .right-icons {
     float: right;
     font-size: 24px;
