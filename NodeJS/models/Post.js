@@ -9,6 +9,7 @@ const Post = db.sequelize.define('postagens',{
     }
 });
 
+
 module.exports = Post;
 
 //Forçar a criação da tabela, comentar/excluir após a criação para não correr o risco de apagar toda tabela

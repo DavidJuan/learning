@@ -1,4 +1,3 @@
-
 //Configurando o Mongoose
 const mongoose = require('mongoose')
 
@@ -15,7 +14,6 @@ mongoose.connect("mongodb://localhost/aprender", { useNewUrlParser: true , useUn
         nome:{
             type: String,
             require: true
-
         },
         sobrenome:{
             type: String,
@@ -32,7 +30,6 @@ mongoose.connect("mongodb://localhost/aprender", { useNewUrlParser: true , useUn
         },
         pais:{
             type: String
-            
         }
     })
 //Collection
