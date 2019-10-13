@@ -20,7 +20,7 @@
 //Routes
     app.use('/admin',admin)
 //Others
-    const PORT = 8789
+    const PORT = 3000
     app.listen(PORT,()=>{
         console.log('Server online')
     })
