@@ -10051,53 +10051,120 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /* Add a hover effect if you want */
-.fa:hover {
+/* .fa:hover {
   opacity: 0.7;
   color: #FFF;
   
-}
+} */
 
 /* Set a specific color for each brand */
 
-/* Facebook */
-.fa-facebook {
-  color: white;
-  background: #3B5998;
-}
+/* Linkedin */
 
 .fa-linkedin {
   color: white;
   background: #0073B0
 }
 
+.fa-linkedin:hover {
+  background: white;
+  color: #0073B0;
+}
+
+/* Facebook */
+
+.fa-facebook {
+  color: white;
+  background: #3B5998;
+}
+
+.fa-facebook:hover {
+  background: white;
+  color: #3B5998;
+}
+
+/* Instagram */
+
+.fa-instagram{
+  color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.fa-instagram:hover{
+  color: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  background: #fff;
+}
+
+/* Youtube */
+
 .fa-youtube {
   color: white;
   background: #FF0000
 }
+
+.fa-youtube:hover {
+  background: white;
+  color: #FF0000
+}
+
+/* Skype */
 
 .fa-skype {
   color: white;
   background: #1CB2E7
 }
 
+.fa-skype:hover {
+  background: white;
+  color: #1CB2E7
+}
+
+/* Twitch */
+
 .fa-twitch {
   color: white;
   background: #9147FF;
 }
 
+.fa-twitch:hover {
+  background: white;
+  color: #9147FF;
+}
+
+/* Github */
+
 .fa-github {
   color: white;
   background: #24292E
 }
+
+.fa-github:hover {
+  background: white;
+  color: #24292E
+}
+
 /* Twitter */
+
 .fa-twitter {
   background: #55ACEE;
   color: white;
 }
-/* Instagram */
-.fa-instagram{
-  color: #fff;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+
+.fa-twitter:hover {
+  color: #55ACEE;
+  background: white;
+}
+
+/* Steam */
+
+.fa-steam {
+  color: #BEBCBA;
+  background: #171A21
+}
+
+.fa-steam:hover {
+  background: #BEBCBA;
+  color: #171A21
 }
 
 /* ==========================================================================

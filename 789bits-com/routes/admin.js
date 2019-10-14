@@ -5,12 +5,12 @@ const router = express.Router()
         res.render('admin/index')
     })
 
-    router.get('/posts',(req,res)=>{
-        res.send('Pagina de Posts')
+    router.get('/contato',(req,res)=>{
+        res.send('Comentarios')
     })
 
-    router.get('/categorias',(req,res)=>{
-        res.send('Pagina de categorias')
+    router.get('/contato/new',(req,res)=>{
+        res.render('admin/newcontato')
     })
 
 module.exports = router
