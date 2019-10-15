@@ -1,23 +1,28 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema;
 
-const Contato = new.Schema({
-    nome:{
+const Contato = new Schema({
+    nome: {
         type: String,
-        require: true
+        required: true
     },
-    contato:{
+    tipoContato: {
         type: String,
-        require: true
+        required: true
     },
-    mensagem:{
+    contato: {
         type: String,
-        require: true
+        required: true
     },
-    date:{
+    mensagem: {
+        type: String,
+        required: true
+    },
+    date: {
         type: Date,
         default: Date.now()
     }
 })
 
-mongoose.model("contato", Contato)
+
+mongoose.model("contatos", Contato);

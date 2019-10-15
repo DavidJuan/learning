@@ -1,22 +1,22 @@
 <button class="btn btn-info">Comentários Anteriores</button>
 <hr>
-<form >
+<form action="/admin/contato/new" method="POST">
     <div class="form-inline">
         <label>Nome: &emsp;</label>
-        <input class="form-control" name="nome" id="nome" type="text" size="40">
+        <input class="form-control" name="nome" id="nome" type="text" size="40" placeholder="Seu nome..." autocomplete="name">
         
     </div>
     <br>
     <div class="form-inline">
         <label>Tipo do Contato: &emsp;</label>
-        <select class="form-control" id="tipoContato">
+        <select class="form-control" id="tipoContato" name="tipoContato">
             <option>E-mail</option>
             <option>Telefone</option>
             <option>Outro</option>
         </select>
     
         <label>&emsp;&emsp;Contato: &emsp;</label>
-        <input class="form-control" name="contato" id="contato" type="text" size="50">
+        <input class="form-control" name="contato" id="contato" type="text" size="50" placeholder="Telefone, E-mail, etc..." autocomplete="email ">
 
         &emsp;<button class="btn btn-warning" type="reset">Limpar</button>&emsp;&emsp;
         <button class="btn btn-success" type="submit">Enviar</button>
@@ -25,6 +25,6 @@
     <br>
     <div class="form-group">
         <label for="mensagem">Mensagem: </label>
-        <textarea class="form-control" name="mensagem" id="mensagem" rows="5"></textarea>
+        <textarea class="form-control" name="mensagem" id="mensagem" rows="5" placeholder="Digite sua mensagem..."></textarea>
     </div>
 </form>
