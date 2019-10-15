@@ -11,7 +11,7 @@
 //Configs
     //Sessão
         app.use(session({
-            secret: "789bits",
+            secret: "cursodenode",
             resave: true,
             saveUninitialized: true
         }))

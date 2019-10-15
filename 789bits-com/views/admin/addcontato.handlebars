@@ -1,4 +1,9 @@
-<button class="btn btn-info">Comentários Anteriores</button>
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+
+<a href="/admin/contato"><button class="btn btn-info">Comentários Anteriores</button></a>
 <hr>
 <form action="/admin/contato/new" method="POST">
     <div class="form-inline">
@@ -9,14 +14,16 @@
     <br>
     <div class="form-inline">
         <label>Tipo do Contato: &emsp;</label>
-        <select class="form-control" id="tipoContato" name="tipoContato">
+        <select class="form-control" id="tipoContato" name="tipoContato" onchange="contatoSelect()">
+            <option value="" selected disabled></option>
             <option>E-mail</option>
             <option>Telefone</option>
             <option>Outro</option>
+            
         </select>
     
         <label>&emsp;&emsp;Contato: &emsp;</label>
-        <input class="form-control" name="contato" id="contato" type="text" size="50" placeholder="Telefone, E-mail, etc..." autocomplete="email ">
+        <input class="form-control" name="contato" id="contato" size="50" >
 
         &emsp;<button class="btn btn-warning" type="reset">Limpar</button>&emsp;&emsp;
         <button class="btn btn-success" type="submit">Enviar</button>

@@ -4433,3 +4433,30 @@
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+
+function contatoSelect() {
+  var tipoContact = document.getElementById('tipoContato');
+  if (tipoContact.options[tipoContact.selectedIndex].value == "Telefone"){
+    document.getElementById("contato").type = "tel";
+    document.getElementById("contato").autocomplete = "tel";
+    document.getElementById('contato').placeholder = "(11)11111-1111";
+  }
+  if (tipoContact.options[tipoContact.selectedIndex].value == "E-mail"){
+    document.getElementById('contato').type = "email";
+    document.getElementById("contato").autocomplete = "email";
+    document.getElementById('contato').placeholder = "seuemail@email.com"; 
+  }
+  if (tipoContact.options[tipoContact.selectedIndex].value == "Outro"){
+    document.getElementById('contato').type = "text";
+    document.getElementById('contato').placeholder = "Insira seu contato aqui..."; 
+    document.getElementById("contato").autocomplete = "off";
+  }
+  
+} 
+
+function trataEspacos() {
+  document.getElementById('nome').value
+  
+}

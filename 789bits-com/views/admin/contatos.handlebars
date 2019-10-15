@@ -1,0 +1,17 @@
+<a href="/admin/contato/add"><button class="btn btn-info">Novo Comentário</button></a>
+
+{{#each contatos}}
+    <div class="card mt-2">
+        <div class="card-body">
+            <h3>{{nome}}</h3>
+            <h5>{{tipoContato}}&emsp;{{contato}}</h5>
+            <h6>{{mensagem}}</h6>
+            <small class="data date-{{id}}"></small>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.date-{{id}}').innerHTML = new Date('{{date}}').toLocaleString();
+    </script>
+
+{{/each}}
