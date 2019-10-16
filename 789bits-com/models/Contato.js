@@ -6,13 +6,13 @@ const Contato = new Schema({
         type: String,
         required: true
     },
-    tipoContato: {
+    email: {
         type: String,
-        required: true
+        
     },
-    contato: {
+    telefone: {
         type: String,
-        required: true
+        
     },
     mensagem: {
         type: String,

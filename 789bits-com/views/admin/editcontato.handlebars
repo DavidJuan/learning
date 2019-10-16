@@ -5,26 +5,27 @@
 
 <a href="/admin/contato"><button class="btn btn-info">Comentários Anteriores</button></a>
 <hr>
-<form action="/admin/contato/new" method="POST">
+<form action="/admin/contato/edit" method="POST">
+,<input type="hidden" name="id" value="{{contato.id}}">
 <div class="container form-inline" style="float: left; width:45%;">
     <div class="form-group mb-4">
         <label for="nome">Nome: &emsp;&emsp;</label>
-        <input class="form-control" name="nome" id="nome" type="text" size="50" placeholder="Seu nome..." autocomplete="name" onblur="limpaEspaco("value")">
+        <input class="form-control" name="nome" id="nome" type="text" size="50" placeholder="Seu nome..." autocomplete="name" value="{{contato.nome}}">
         
     </div>
     
     <div class="form-group mb-4">
         <label>E-mail: &emsp;&emsp;</label>
-        <input class="form-control" name="email" id="email" type="email" size="50" placeholder="seuemail@email.com">
+        <input class="form-control" name="email" id="email" type="email" size="50" placeholder="seuemail@email.com" value="{{contato.email}}">
     </div>
     <div class="form-group mb-4">
         <label>Telefone: &emsp;</label>
-        <input class="form-control" name="telefone" id="telefone" type="telefone" size="50" autocomplete="off">
+        <input class="form-control" name="telefone" id="telefone" type="telefone" size="50" autocomplete="off" value="{{contato.telefone}}">
     </div>
     </div>
     <div class="container" style="float: right; width:45%;">
         <label for="mensagem">Mensagem:</label>
-        <textarea class="form-control" name="mensagem" id="mensagem" rows="5" placeholder="Digite sua mensagem..."></textarea>
+        <textarea class="form-control" name="mensagem" id="mensagem" rows="5" placeholder="Digite sua mensagem...">{{contato.mensagem}}</textarea>
         
         <div style="float: right; position:relative" class="form-inline mt-2">
             <button class="btn btn-warning" type="reset">Limpar</button>&emsp;&emsp;

@@ -4436,27 +4436,185 @@
 
 
 
-function contatoSelect() {
-  var tipoContact = document.getElementById('tipoContato');
-  if (tipoContact.options[tipoContact.selectedIndex].value == "Telefone"){
-    document.getElementById("contato").type = "tel";
-    document.getElementById("contato").autocomplete = "tel";
-    document.getElementById('contato').placeholder = "(11)11111-1111";
-  }
-  if (tipoContact.options[tipoContact.selectedIndex].value == "E-mail"){
-    document.getElementById('contato').type = "email";
-    document.getElementById("contato").autocomplete = "email";
-    document.getElementById('contato').placeholder = "seuemail@email.com"; 
-  }
-  if (tipoContact.options[tipoContact.selectedIndex].value == "Outro"){
-    document.getElementById('contato').type = "text";
-    document.getElementById('contato').placeholder = "Insira seu contato aqui..."; 
-    document.getElementById("contato").autocomplete = "off";
-  }
-  
-} 
 
-function trataEspacos() {
-  document.getElementById('nome').value
-  
-}
+// Funções de Inputs Especiais //
+Object.prototype.setEvents = function () {
+  var keyCodesP = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57],
+      keyCodesE = [9, 35, 36, 37, 39, 45],
+      inputType = this.getAttribute("type"),
+      onBlur = this.onblur,
+      cursor, i;
+
+      this.telefone = function () {
+        var maxlength = 11;
+    
+        function format(value) {
+          var newValue = "";
+    
+          for (i = 0; i < value.length; i++) {
+            if (newValue.length === 0) {
+              if (newValue.length <= cursor) {
+                cursor += 1;
+              }
+    
+              newValue += "(";
+            } else if (newValue.length == 3) {
+              if (newValue.length <= cursor) {
+                cursor += 2;
+              }
+    
+              newValue += ") ";
+            } else if ((value.length < 11 && newValue.length == 9) || (value.length == 11 && newValue.length == 10)) {
+              if (newValue.length <= cursor) {
+                cursor += 1;
+              }
+    
+              newValue += "-";
+            }
+    
+            newValue += value.charAt(i);
+          }
+    
+          return newValue;
+        }
+    
+        this.setAttribute("placeholder", "(12) 3456-7890");
+    
+        this.onkeydown = function (event) {
+          var keyCode = window.Event ? event.which : event.keyCode,
+              value = this.value,
+              selectionStart = this.selectionStart;
+    
+          if (event.ctrlKey === true) {
+            return true;
+          }
+    
+          cursor = selectionStart - (value.substr(0, selectionStart).length - value.substr(0, selectionStart).toString().replace(/[^\d]+/g, "").length);
+          value = value.toString().replace(/[^\d]+/g, "");
+          keyCode = keyCode >= 96 && keyCode <= 105 ? keyCode - 48 : keyCode;
+    
+          if (keyCode == 8 || keyCode == 46) {
+            cursor -= keyCode == 8 ? 1 : 0;
+            value = value.substr(0, cursor) + value.substr(cursor + 1);
+    
+            this.value = format(value);
+            this.selectionStart = cursor;
+            this.selectionEnd = cursor;
+    
+            return false;
+          }
+    
+          if (inArray(keyCode, keyCodesE)) {
+            return true;
+          }
+    
+          if (value.length < maxlength && inArray(keyCode, keyCodesP)) {
+            value = value.substr(0, cursor) + String.fromCharCode(keyCode) + value.substr(cursor, value.length);
+            cursor += 1;
+    
+            this.value = format(value);
+            this.selectionStart = cursor;
+            this.selectionEnd = cursor;
+    
+            return false;
+          }
+    
+          return false;
+        };
+    
+        this.onpaste = function (event) {
+          var clipboardData = window.clipboardData ? window.clipboardData.getData("text") : event.clipboardData.getData("text/plain"),
+              value = this.value,
+              selectionStart = this.selectionStart;
+    
+          clipboardData = clipboardData.toString().replace(/[^\d]+/g, "");
+          cursor = selectionStart - (value.substr(0, selectionStart).length - value.substr(0, selectionStart).toString().replace(/[^\d]+/g, "").length);
+          cursor += clipboardData.length;
+    
+          value = value.toString().replace(/[^\d]+/g, "");
+          value = value.substr(0, cursor) + clipboardData + value.substr(cursor, value.length);
+    
+          if (value.length > maxlength) {
+            value = value.substr(0, maxlength);
+          }
+    
+          this.value = format(value);
+          this.selectionStart = cursor;
+          this.selectionEnd = cursor;
+    
+          return false;
+        };
+    
+        this.onblur = function () {
+          var value = this.value;
+    
+          if (value && value.length != 14 && value.length != 15) {
+            alert("O número \"" + value + "\" é inválido.");
+            this.value = "";
+            setTimeout(function () {
+              this.focus();
+            }, 0);
+    
+            return false;
+          }
+    
+          if (onBlur) {
+            onBlur.call(this);
+          }
+        };
+      };
+      this[inputType]();
+    }
+    window.addEventListener("load", function () {
+      var selectors = ["input[type=data]",
+                       "input[type=numero]",
+                       "input[type=telefone]",
+                       "input[type=cnpj]",
+                       "input[type=cpf]",
+                       "input[type=moeda]"];
+    
+      (function () {
+        var i;
+    
+        for (i = 0; i < this.length; i++) {
+          this[i].setEvents();
+        }
+      }).call(document.querySelectorAll(selectors));
+    }, false);
+    // Fim das Funções de Inputs Especiais //
+    
+    // ====================================================================== //
+    
+    function inArray(value, array) {
+      var i;
+    
+      for (i = 0; i < array.length; i++) {
+        if (value == array[i]) {
+          return true;
+        }
+      }
+    
+      return false;
+    } // Fim da função inArray
+
+    //remove caracteres
+     function limpaEspaco(vlr) {
+      // var vlr = document.getElementById(This).value
+      while(vlr.indexOf("  ") != -1)
+      vlr = vlr.replace("  ", " ");
+      }
+
+
+    function capturar(campo) {
+      document.getElementById("nome").value = removeCaracteres(trim(campo.value)); 
+     }  		
+     
+     function trim(e){ 
+     espacos = /\s/g; 
+     return e.replace(espacos, "");
+     }  		
+     
+     function removeCaracteres(e){ 
+     remove = /á|é|í|ó|ú/g;  // adicione os caracteres indesejáveis
+     return e.replace(remove, "");
+     }

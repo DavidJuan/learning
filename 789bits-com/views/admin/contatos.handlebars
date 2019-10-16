@@ -4,14 +4,25 @@
     <div class="card mt-2">
         <div class="card-body">
             <h3>{{nome}}</h3>
-            <h5>{{tipoContato}}&emsp;{{contato}}</h5>
+            <h5>{{email}}&emsp;{{contato}}</h5>
             <h6>{{mensagem}}</h6>
-            <small class="data date-{{id}}"></small>
+            <small class="data date-{{id}}"></small><br>
+            <div class="container form-inline">
+            <a href="/admin/contato/edit/{{_id}}" class="form-group"><button class="btn btn-outline-primary">Editar</button></a>
+            &emsp;&emsp;&emsp;&emsp;
+            <form action="/admin/contato/delete" method="POST" class="form-group">
+                <input name="id" type="hidden" value="{{_id}}">
+                <button type="submit" class="btn btn-warning">Delete</button>
+            </form>
+            </div>
         </div>
     </div>
 
     <script>
         document.querySelector('.date-{{id}}').innerHTML = new Date('{{date}}').toLocaleString();
     </script>
-
+{{else}}
+    <div class="container mt-4">
+        <h4>Nenhuma mensagem encontrada :(</h4>
+    </div>
 {{/each}}

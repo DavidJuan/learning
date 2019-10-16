@@ -14,8 +14,7 @@ const Contato = mongoose.model("contatos")
         }).catch((err) => {
             req.flash("error_msg", "Houve um erro ao listar as mensagens")
             res.redirect("/admin")
-        })
-        
+        })        
     })
 
     router.get('/contato/add',(req,res)=>{
@@ -29,11 +28,6 @@ const Contato = mongoose.model("contatos")
         if (!req.body.nome || typeof req.body.nome == undefined || req.body.nome == null){
             erros.push({texto: "Nome inválido"})
         }
-        if (!req.body.contato || typeof req.body.contato == undefined || req.body.contato == null){
-            erros.push({texto: "Contato inválido"})
-        } else if(req.body.contato.length < 5){
-            erros.push({texto: "O Contato tem poucos caracteres"})
-        }
         if (!req.body.mensagem || typeof req.body.mensagem == undefined || req.body.mensagem == null){
             erros.push({texto: "Mensagem inválida"})
         } 
@@ -45,8 +39,8 @@ const Contato = mongoose.model("contatos")
             //adicionando ao mongo caso esteja certo
             const newContato = {
                 nome: req.body.nome,
-                tipoContato: req.body.tipoContato,
-                contato: req.body.contato,
+                email: req.body.email,
+                telefone: req.body.telefone,
                 mensagem: req.body.mensagem
             }
             new Contato(newContato).save().then(() =>{
@@ -58,10 +52,52 @@ const Contato = mongoose.model("contatos")
                 console.log("Erro ao salvar mensagem: " + err)
                 req.flash("error_msg", "Houve um erro ao salvar a mensagem, Tente novamente")
                 res.redirect("/admin")
-            })
-        
-        }
-        
+            })       
+        }      
+    })
+
+    router.get("/contato/edit/:id", (req,res)=>{
+        Contato.findOne({_id:req.params.id}).then((contato) => {
+            res.render("admin/editcontato", {contato: contato})
+        }).catch((err) => {
+            req.flash("error_msg", "Esta mensagem não existe")
+            res.redirect('/admin/contato')
+            console.log("Esta mensagem não existe" + err)
+        })
+    })
+
+    router.post("/contato/edit", (req,res)=>{
+        Contato.findOne({_id: req.body.id}).then((contato) =>{
+               
+                contato.nome = req.body.nome
+                contato.email = req.body.email
+                contato.telefone = req.body.telefone
+                contato.mensagem = req.body.mensagem
+
+                contato.save().then(() => {
+                    req.flash("info_msg","Edição realizada com sucesso")
+                    res.redirect("/admin/contato")
+                }).catch((err)=>{
+                    req.flash("error_msg","Houve um erro interno ao editar a mensagem")
+                    res.redirect("/admin/contato")
+                    console.log("Houve um erro interno ao editar a mensagem" + err)
+                })
+            
+        }).catch((err)=>{
+            req.flash("error_msg","Houve um erro ao editar a mensagem")
+            res.redirect("/admin/contato")
+            console.log("Houve um erro ao editar a mensagem" + err)
+        })
+    })
+
+    router.post("/contato/delete", (req,res)=>{
+        Contato.deleteOne({_id: req.body.id}).then(() =>{
+            req.flash("warning_msg", "Mensagem deletada com sucesso")
+            res.redirect("/admin/contato")
+        }).catch((err)=>{
+            req.flash("erros_msg","Houve um erro ao deletar a mensagem")
+            res.redirect("/admin/contato")
+        })
     })
 
 module.exports = router
