@@ -14,6 +14,12 @@ const Contato = new Schema({
         type: String,
         
     },
+    assunto:{
+        //PEGANDO ASSUNTO DA TABELA ASSUNTOS
+        type: Schema.Types.ObjectId,
+        ref: "assuntos",
+        required:true
+    },
     mensagem: {
         type: String,
         required: true
@@ -23,6 +29,5 @@ const Contato = new Schema({
         default: Date.now()
     }
 })
-
 
 mongoose.model("contatos", Contato);
