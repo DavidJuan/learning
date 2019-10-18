@@ -32,8 +32,8 @@
                 {{/each}}
             </select>
             <div class="input-group-append">
-                BOTAO PARA ADICIONAR NOVO ASSUNTO VIA MODAL
-                <button class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="myModal">Novo</button>
+                {{!-- BOTAO PARA ADICIONAR NOVO ASSUNTO VIA MODAL --}}
+                <button class="btn btn-outline-secondary" id="modal-button" type="button" data-toggle="modal" data-target="myModal">Novo</button>
             </div>  
         </div>
         <label for="mensagem">Mensagem:</label>
@@ -46,5 +46,11 @@
     </div>  
 
 </form>
-
+<div class="modal fade bd-example-modal-lg" id="modalAssunto" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <h1>TESTE</h1>
+    </div>
+  </div>
+</div>
 

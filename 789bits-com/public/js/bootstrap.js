@@ -4437,7 +4437,7 @@
 
 
 
-// Funções de Inputs Especiais //
+/* Funções de Inputs Especiais //
 Object.prototype.setEvents = function () {
   var keyCodesP = [48, 49, 50, 51, 52, 53, 54, 55, 56, 57],
       keyCodesE = [9, 35, 36, 37, 39, 45],
@@ -4617,4 +4617,4 @@ Object.prototype.setEvents = function () {
      function removeCaracteres(e){ 
      remove = /á|é|í|ó|ú/g;  // adicione os caracteres indesejáveis
      return e.replace(remove, "");
-     }
+     }*/
