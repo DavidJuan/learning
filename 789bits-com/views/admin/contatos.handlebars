@@ -1,10 +1,10 @@
 <a href="/admin/contato/add"><button class="btn btn-info">Novo Comentário</button></a>
-
 {{#each contatos}}
     <div class="card mt-2">
         <div class="card-body">
             <h3>{{nome}}</h3>
             <h5>{{email}}&emsp;{{contato}}</h5>
+            <h5>{{assunto.titulo}}</h5>
             <h6>{{mensagem}}</h6>
             <small class="data date-{{id}}"></small><br>
             <div class="container form-inline">

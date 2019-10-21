@@ -3,6 +3,8 @@ const router = express.Router()
 const mongoose = require("mongoose")
 require("../models/Contato.js")
 const Contato = mongoose.model("contatos")
+require("../models/Assunto.js")
+const Assunto = mongoose.model("assuntos")
 
 //CAMINHO PRINCIPAL
     router.get('/',(req,res)=>{
@@ -10,7 +12,8 @@ const Contato = mongoose.model("contatos")
     })
 //LISTAGEM DAS MENSAGENS (CONTATOS) RECEBIDAS
     router.get('/contato',(req,res)=>{
-        Contato.find().sort({date:"desc"}).then((contatos) => {
+        //populate para mandar informações da model "assunto" para a listagem de "contatos"
+        Contato.find().populate("assunto").sort({date:"desc"}).then((contatos) => {
             res.render('admin/contatos',{contatos: contatos})
         }).catch((err) => {
             req.flash("error_msg", "Houve um erro ao listar as mensagens")
@@ -19,9 +22,15 @@ const Contato = mongoose.model("contatos")
     })
 //GET DA PAGINA DE NOVO CONTATO
     router.get('/contato/add',(req,res)=>{
-        res.render('admin/addcontato')
+        //mandando tabela assunto para ser selecionavel na view de addcontato
+        Assunto.find().then((assuntos)=>{
+            res.render('admin/addcontato',{assuntos: assuntos})
+        }).catch((err)=>{
+            req.flash("error_msg","Falha ao listar os assuntos"+err)
+        })
+        
     })
-//POST DA NOVO CONTATO NO MONGO
+//POST DO NOVO CONTATO NO MONGO
     router.post('/contato/new',(req,res)=>{
         //array que guarda os erros
         var erros = []
@@ -47,7 +56,7 @@ const Contato = mongoose.model("contatos")
                 email: req.body.email,
                 telefone: req.body.telefone,
                 mensagem: req.body.mensagem,
-                assunto: req.body.assunto //MUDAR SINTAXE
+                assunto: req.body.assunto
             }
             new Contato(newContato).save().then(() =>{
                 console.log("Mensagem salva com sucesso!!")
@@ -63,6 +72,7 @@ const Contato = mongoose.model("contatos")
     })
 //MOSTRANDO PAGINA DE EDIÇÃO DE CONTATOS
     router.get("/contato/edit/:id", (req,res)=>{
+        //requerendo contato pelo id para edição
         Contato.findOne({_id:req.params.id}).then((contato) => {
             res.render("admin/editcontato", {contato: contato})
         }).catch((err) => {
@@ -104,6 +114,27 @@ const Contato = mongoose.model("contatos")
         }).catch((err)=>{
             req.flash("erros_msg","Houve um erro ao deletar a mensagem")
             res.redirect("/admin/contato")
+        })
+    })
+
+    router.get("/assunto/add",(req,res) => {
+        res.render("admin/addassunto")
+    })
+
+
+    router.post("/assunto/new",(req,res)=>{
+        const newAssunto = {
+            titulo: req.body.titulo,
+            descricao: req.body.descricao
+        }
+
+        new Assunto(newAssunto).save().then(()=>{
+            console.log("Assunto salvo com sucesso")
+            req.flash("success_msg", "Assunto salvo com sucesso")
+            res.redirect("/admin/contato/add")
+        }).catch((err)=>{
+            console.log("Erro ao salvar assunto"+err)
+            req.flash("error_msg","Erro ao salvar assunto"+err)
         })
     })
 
