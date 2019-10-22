@@ -1,5 +1,7 @@
-$(function(){
-    $('#modal-button').click(function(){
-        $('#modalAssunto').show();
-    });
-});
+// $('.modal-trigger').leanModal();
+
+// $(function(){
+//     $('#modal-button').click(function(){
+//         $('#modalAssunto').show();
+//     });
+// });
