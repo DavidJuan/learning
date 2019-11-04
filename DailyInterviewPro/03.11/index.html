@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number"  id="a1" size="1">
+        <input type="number" id="a2" size="1">
+        <input type="number" id="a3" size="1">
+    </div> 
+    <div class="container2">
+        <input type="number" id="b1" size="1">
+        <input type="number" id="b2" size="1">
+        <input type="number" id="b3" size="1">
+    </div>
+    <button name="ok" onclick="print()">calcular</button>
+</body>
+<script>
+    var a
+
+    function print() {
+        a = [parseInt(document.getElementById("a1").value) ,parseInt(document.getElementById("a2").value) ,parseInt(document.getElementById("a3").value)]
+        console.log(a.reverse())
+        b = [parseInt(document.getElementById("b1").value) ,parseInt(document.getElementById("b2").value) ,parseInt(document.getElementById("b3").value)]
+        console.log(b.reverse())
+        for (let i = 0; i < a.length; i++) {
+            var c=0, d=0, e=0;
+           // switch (i) {
+             //   case 0:
+                   if(i=0){
+                    if (a[i] + b[i] > 9) {
+                        c += (a[i] + b[i]) - 10
+                        d = 1
+                    }else{
+                    c = a[i] + b[i];
+                    }
+                   }
+               //     break;
+                
+                //case 1:
+                if(i=1){
+                    if (d + a[i] + b[i] > 9) {
+                        d += (a[i] + b[i]) - 10
+                        e = 1
+                    }else{
+                    d += a[i] + b[i];
+                    }
+                }
+                  //  break;
+                
+               // case 2:
+               if (i=2) {
+                   e += a[i] + b[i];
+               }
+                 //  break;
+                //default: break;
+                    
+           //}
+        }
+
+        console.log(c,d,e)
+    }
+    
+</script>
+</html>
