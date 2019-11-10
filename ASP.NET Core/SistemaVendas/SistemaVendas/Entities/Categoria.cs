@@ -10,12 +10,12 @@ namespace SistemaVendas.Entities
     public class Categoria
     {
         [Key]
-        public int? Cod { get; set; }
+            public int? Cod { get; set; }
 
         public string Nome { get; set; }
 
         [ForeignKey("Usuario")]
-        public int CodUsuario { get; set; }
+            public int CodUsuario { get; set; }
         public Usuario Usuario { get; set; }
 
         public ICollection<Produto> Produtos { get; set; }

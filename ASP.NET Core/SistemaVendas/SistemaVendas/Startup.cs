@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using SistemaVendas.DAL;
+using Microsoft.AspNetCore.Http;
 
 namespace SistemaVendas
 {
@@ -25,7 +28,13 @@ namespace SistemaVendas
         {
             //habilitando MVC ao inves de endpoints
             //services.AddMvc(option => option.EnableEndpointRouting = false);
-            
+
+
+            services.AddDbContext<ApplicationDbContext>(options => 
+            options.UseSqlServer("Server=.;Database=Estoque;Trusted_Connection=True;MultipleActiveResultSets=True"));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSession();
 
             services.AddControllersWithViews();
         }
